@@ -1,6 +1,7 @@
 import fitz
 import re
 import torch
+import os
 import torch.nn.functional as F
 import streamlit as st
 from transformers import AutoTokenizer, AutoModel
@@ -66,7 +67,7 @@ if uploaded_file is not None:
     if query:
         context = top_sentences(query, embeddings, sentences, tokenizer, model_encoder)
 
-        gemini_api_key = 'YOUR_API_KEY'
+        gemini_api_key = os.getenv("GEMINI_API_KEY")
         genai.configure(api_key=gemini_api_key)
 
         generation_config = {
@@ -91,7 +92,6 @@ if uploaded_file is not None:
             history=[]
         )
 
-        context = top_sentences(query, embeddings, sentences)
         message = {
             "role" : "user",
             "parts" : [
