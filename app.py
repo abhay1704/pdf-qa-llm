@@ -95,8 +95,7 @@ if uploaded_file is not None:
         message = {
             "role" : "user",
             "parts" : [
-                f"Context: {context}",
-                f"query : {query}"
+                f"Context: {context}\n\n Query: {query}",
             ]
         }
 
