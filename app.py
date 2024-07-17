@@ -103,6 +103,6 @@ if uploaded_file is not None:
         response = chat_session.send_message(message)
 
         if response:
-            answer = response["choices"][0]["message"]["content"]
+            answer = response.candidates[0].content.parts[0].text
             st.write("Answer:")
-            st.write(answer)
+            st.markdown(answer)
