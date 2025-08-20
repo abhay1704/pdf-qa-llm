@@ -79,7 +79,7 @@ if uploaded_file is not None:
         }
 
         model_genai = genai.GenerativeModel(
-            model_name="gemini-1.5-pro",
+            model_name="gemini-2.5-flash-lite",
             generation_config=generation_config,
             system_instruction="You will be provided with context from a PDF document. Analyze the context and respond to queries based on the information given.",
         )
